@@ -4,6 +4,7 @@ class Weather {
   double humidity;
   double wind;
   String weatherCondition;
+  String location;
 
   Weather({
     required this.date,
@@ -11,5 +12,6 @@ class Weather {
     required this.wind,
     required this.humidity,
     required this.weatherCondition,
+    required this.location,
   });
 }

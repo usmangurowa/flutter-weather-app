@@ -24,7 +24,8 @@ class _DetailPageState extends State<DetailPage> {
           temperature: 25.0,
           humidity: 70.0,
           weatherCondition: 'Sunny',
-          wind: 20.0);
+          wind: 20.0,
+          location: "Lagos");
       weatherProvider.updateWeather(newWeather);
     }
 
@@ -54,10 +55,23 @@ class _DetailPageState extends State<DetailPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              const Image(
-                  image: AssetImage('assets/images/cloudy.png'),
-                  width: 200,
-                  height: 200),
+              if (weatherProvider.weather.weatherCondition.toLowerCase() ==
+                  'cloudy')
+                const Image(
+                    image: AssetImage('assets/images/cloudy.png'),
+                    width: 200,
+                    height: 200)
+              else if (weatherProvider.weather.weatherCondition.toLowerCase() ==
+                  "sunny")
+                const Image(
+                    image: AssetImage('assets/images/sunny.png'),
+                    width: 200,
+                    height: 200)
+              else
+                const Image(
+                    image: AssetImage('assets/images/cloudy.png'),
+                    width: 200,
+                    height: 200),
               Container(
                 width: MediaQuery.of(context).size.width * 0.8,
                 padding: const EdgeInsets.all(16),
@@ -139,26 +153,26 @@ class _DetailPageState extends State<DetailPage> {
           ),
         ),
       ),
-      floatingActionButton: Align(
-        alignment: Alignment.bottomCenter,
-        child: SizedBox(
-          width: 200,
-          child: FloatingActionButton(
-            onPressed: _updateWeahter,
-            tooltip: 'Increment',
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Text(
-                "Update Weather",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
-              Icon(Icons.arrow_drop_up)
-            ]),
-            backgroundColor: Colors.white,
-            // shape: ,
-          ),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // floatingActionButton: Align(
+      //   alignment: Alignment.bottomCenter,
+      //   child: SizedBox(
+      //     width: 200,
+      //     child: FloatingActionButton(
+      //       onPressed: _updateWeahter,
+      //       tooltip: 'Increment',
+      //       child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      //         Text(
+      //           "Update Weather",
+      //           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+      //         ),
+      //         Icon(Icons.arrow_drop_up)
+      //       ]),
+      //       backgroundColor: Colors.white,
+      //       // shape: ,
+      //     ),
+      //   ),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

@@ -1,16 +1,10 @@
-# wheatherap
+# wheatherapp
 
-A new Flutter project.
 
-## Getting Started
+Currently, the app has two screens.
+- The first screen shows a list of cities, with the name of the city as the title and the temperature as a subtitle.
+- On tapping any city, it will lead to the second screen.
+- The second screen is a detailed screen for each city's weather, showing more information regarding that city.
+- Using Provider for state management, the detail for the current weather is being set upon tapping on any city before navigating to the detailed screen.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  Currently, the data are not fetched from an API, but from an array in the app.
